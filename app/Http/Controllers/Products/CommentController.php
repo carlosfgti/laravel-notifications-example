@@ -22,6 +22,6 @@ class CommentController extends Controller
 
         return redirect()
                     ->route('products.show', $comment->product_id)
-                    ->with('success', 'Cadastro realizado com sucesso!');
+                    ->withSuccess('Cadastro realizado com sucesso!');
     }
 }
