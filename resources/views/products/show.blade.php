@@ -12,6 +12,15 @@
     {{ session('success') }}
 </div>
 @endif
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 <h3>Deixe o seu comentário:</h3>
 <form action="{{ route('comment.store') }}" method="POST">
     {!! csrf_field() !!}
