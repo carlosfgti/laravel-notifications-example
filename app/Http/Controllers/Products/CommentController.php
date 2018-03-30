@@ -7,11 +7,12 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\User;
 use App\Notifications\PostCommented;
+use App\Http\Requests\Products\StoreCommentFormRequest;
 
 class CommentController extends Controller
 {
 
-    public function store(Request $request)
+    public function store(StoreCommentFormRequest $request)
     {
         $user = User::find(2);
 
