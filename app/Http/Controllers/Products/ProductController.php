@@ -14,4 +14,12 @@ class ProductController extends Controller
     {
         $this->product = $product;
     }
+
+
+    public function index()
+    {
+        $products = $product->all();
+
+        return view('products.index', compact('products'));
+    }
 }
