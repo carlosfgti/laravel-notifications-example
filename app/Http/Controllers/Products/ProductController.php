@@ -26,7 +26,10 @@ class ProductController extends Controller
 
     public function show($id)
     {
-        $product = $this->product->find($id);
+        $product = $this
+                        ->product
+                        ->with('comments')
+                        ->find($id);
 
         return view('products.show', compact('product'));
     }

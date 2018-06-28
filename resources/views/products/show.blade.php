@@ -7,6 +7,11 @@
 {{ $product->description }}
 
 <hr>
+@if (session('success'))
+<div class="alert alert-success">
+    {{ session('success') }}
+</div>
+@endif
 <h3>Deixe o seu comentário:</h3>
 <form action="{{ route('comment.store') }}" method="POST">
     {!! csrf_field() !!}
@@ -24,5 +29,12 @@
         </button>
     </div>
 </form>
+
+<hr>
+<h3>Comentários</h3>
+@foreach ($product->comments as $comment)
+    {{ $comment->title }} - {{ $comment->body }}
+    <hr>
+@endforeach
 
 @endsection
