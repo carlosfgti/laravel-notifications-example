@@ -15,6 +15,8 @@ class CommentController extends Controller
 
         $comment = $product->comments()->create($request->all());
 
-        return redirect()->route('products.show', $product->id);
+        return redirect()
+                    ->route('products.show', $product->id)
+                    ->with('success', 'Cadastro realizado com sucesso!');
     }
 }
