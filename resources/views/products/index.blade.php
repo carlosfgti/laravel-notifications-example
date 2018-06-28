@@ -5,7 +5,7 @@
 <h1>Produtos</h1>
 
 @foreach ($products as $product)
-    {{ $product->name }}
+    {{ $product->name }} - {{ $product->description }}
     <hr>
 @endforeach
 
