@@ -3,20 +3,21 @@
 namespace App\Http\Controllers\Products;
 
 use Illuminate\Http\Request;
-use App\Models\Product;
 use App\Http\Controllers\Controller;
+use App\Models\Product;
+use App\Models\User;
 
 class CommentController extends Controller
 {
 
     public function store(Request $request)
     {
-        $product = Product::find($request->productId);
+        $user = User::find(1);
 
-        $comment = $product->comments()->create($request->all());
+        $comment = $user->comments()->create($request->all());
 
         return redirect()
-                    ->route('products.show', $product->id)
+                    ->route('products.show', $comment->id)
                     ->with('success', 'Cadastro realizado com sucesso!');
     }
 }

@@ -11,7 +11,7 @@
 <form action="{{ route('comment.store') }}" method="POST">
     {!! csrf_field() !!}
 
-    <input type="hidden" name="productId" value="{{ $product->id }}">
+    <input type="hidden" name="product_id" value="{{ $product->id }}">
     <div class="form-group">
         <input type="text" class="form-control" name="title" placeholder="Assunto">
     </div>
