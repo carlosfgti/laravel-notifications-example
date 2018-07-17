@@ -61,4 +61,18 @@ class PostCommented extends Notification implements ShouldQueue
             //
         ];
     }
+
+
+    /**
+     * Get the array representation of the notification.
+     *
+     * @param  mixed  $notifiable
+     * @return array
+     */
+    public function toDatabase($notifiable)
+    {
+        return [
+            'comment' => $this->comment->load('user'),
+        ];
+    }
 }
