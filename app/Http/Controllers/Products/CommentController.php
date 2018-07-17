@@ -12,9 +12,15 @@ use App\Http\Requests\Products\StoreCommentFormRequest;
 class CommentController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
     public function store(StoreCommentFormRequest $request)
     {
-        $user = User::find(2);
+        $user = $request->user();
 
         $comment = $user->comments()->create($request->all());
 
