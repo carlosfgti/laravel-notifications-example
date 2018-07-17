@@ -48322,6 +48322,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     mounted: function mounted() {
@@ -48368,9 +48369,12 @@ var render = function() {
               [
                 _vm._v(
                   "\n                " +
+                    _vm._s(notification.data.comment.user.name) +
+                    " comentou: " +
                     _vm._s(notification.data.comment.title) +
-                    "\n            "
-                )
+                    "\n                "
+                ),
+                _c("hr")
               ]
             )
           }),
