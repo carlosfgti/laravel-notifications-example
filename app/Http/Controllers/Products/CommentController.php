@@ -20,10 +20,9 @@ class CommentController extends Controller
 
     public function store(StoreCommentFormRequest $request)
     {
-        $user = $request->user();
+        $comment = $request->user()->comments()->create($request->all());
 
-        $comment = $user->comments()->create($request->all());
-
+        // Get user owner product
         $user = $comment->product->user;
         $user->notify(new PostCommented($comment));
 
