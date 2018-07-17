@@ -7,8 +7,7 @@
 
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="#" v-for="notification in notifications" :key="notification.id">
-                    {{ notification.data.comment.user.name }} comentou: {{ notification.data.comment.title }}
-                    <hr/>
+                    {{ notification.data.comment.user.name }} comentou: {{ notification.data.comment.title }} | No Produto:  {{ notification.data.comment.product.name }}
                 </a>
                 <a class="dropdown-item" href="#" v-if="notifications.length == 0">
                     Sem Notificações
