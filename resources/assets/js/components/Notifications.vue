@@ -13,3 +13,15 @@
         </li>
     </div>
 </template>
+
+
+<script>
+export default {
+    computed: {
+        notifications () {
+            return []
+        }
+    },
+}
+</script>
+
