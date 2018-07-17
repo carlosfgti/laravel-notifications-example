@@ -48368,7 +48368,7 @@ var render = function() {
               [
                 _vm._v(
                   "\n                " +
-                    _vm._s(notification.id) +
+                    _vm._s(notification.data.comment.title) +
                     "\n            "
                 )
               ]
