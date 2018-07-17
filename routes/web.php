@@ -1,5 +1,7 @@
 <?php
 
+$this->get('notifications', 'NotificationController@notifications')->name('notifications');
+
 $this->post('commet', 'Products\CommentController@store')->name('comment.store');
 
 $this->get('product/{id}', 'Products\ProductController@show')->name('products.show');
