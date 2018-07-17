@@ -22,7 +22,7 @@
 export default {
     computed: {
         notifications () {
-            return []
+            return this.$store.state.notifications.items
         }
     },
 }
