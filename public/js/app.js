@@ -48322,6 +48322,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     mounted: function mounted() {
@@ -48366,6 +48371,9 @@ var render = function() {
                 attrs: { href: "#" }
               },
               [
+                _c("span", { attrs: { title: "Marcar como lida" } }, [
+                  _vm._v("(Lido)")
+                ]),
                 _vm._v(
                   "\n                " +
                     _vm._s(notification.data.comment.user.name) +
@@ -48379,11 +48387,18 @@ var render = function() {
             )
           }),
           _vm._v(" "),
-          _vm.notifications.length == 0
-            ? _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
+          _vm.notifications
+            ? _c(
+                "a",
+                {
+                  staticClass: "dropdown-item text-center",
+                  attrs: { href: "#" }
+                },
+                [_vm._v("\n                Ver todas\n            ")]
+              )
+            : _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
                 _vm._v("\n                Sem Notificações\n            ")
               ])
-            : _vm._e()
         ],
         2
       )
