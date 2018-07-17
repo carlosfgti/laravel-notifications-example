@@ -48123,9 +48123,19 @@ var index_esm = {
         items: []
     },
 
-    mutations: {},
+    mutations: {
+        LOAD_NOTIFICATIONS: function LOAD_NOTIFICATIONS(state, notifications) {
+            state.items = notifications;
+        }
+    },
 
-    actions: {},
+    actions: {
+        getNotifications: function getNotifications(context) {
+            axios.get('/notifications').then(function (response) {
+                return context('LOAD_NOTIFICATIONS', response.data);
+            });
+        }
+    },
 
     getters: {}
 });
