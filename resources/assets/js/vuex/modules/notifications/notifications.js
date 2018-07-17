@@ -11,8 +11,8 @@ export default {
 
     actions: {
         getNotifications (context) {
-            axios.get('/notifications')
-                    .then(response => context('LOAD_NOTIFICATIONS', response.data))
+            return axios.get('/notifications')
+                            .then(response => context.commit('LOAD_NOTIFICATIONS', response.data.notifications))
         }
     },
 

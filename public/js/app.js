@@ -48131,8 +48131,8 @@ var index_esm = {
 
     actions: {
         getNotifications: function getNotifications(context) {
-            axios.get('/notifications').then(function (response) {
-                return context('LOAD_NOTIFICATIONS', response.data);
+            return axios.get('/notifications').then(function (response) {
+                return context.commit('LOAD_NOTIFICATIONS', response.data.notifications);
             });
         }
     },
@@ -48324,11 +48324,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+    mounted: function mounted() {
+        this.$store.dispatch('getNotifications');
+    },
+
+
     computed: {
         notifications: function notifications() {
             return this.$store.state.notifications.items;
         }
-    }
+    },
+
+    methods: {}
 });
 
 /***/ }),

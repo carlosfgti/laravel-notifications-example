@@ -20,10 +20,18 @@
 
 <script>
 export default {
+    mounted() {
+        this.$store.dispatch('getNotifications')
+    },
+
     computed: {
         notifications () {
             return this.$store.state.notifications.items
         }
+    },
+
+    methods: {
+
     },
 }
 </script>
