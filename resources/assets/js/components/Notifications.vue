@@ -11,7 +11,7 @@
                     {{ notification.data.comment.user.name }} comentou: {{ notification.data.comment.title }} | No Produto:  {{ notification.data.comment.product.name }}
                 </a>
 
-                <a class="dropdown-item text-center" href="#" v-if="notifications">
+                <a class="dropdown-item text-center" href="#" v-if="notifications.length">
                     Ver todas
                 </a>
                 <a class="dropdown-item" href="#" v-else>

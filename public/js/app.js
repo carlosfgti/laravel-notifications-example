@@ -48387,7 +48387,7 @@ var render = function() {
             )
           }),
           _vm._v(" "),
-          _vm.notifications
+          _vm.notifications.length
             ? _c(
                 "a",
                 {
