@@ -7,7 +7,7 @@
 
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="#" v-for="notification in notifications" :key="notification.id">
-                    <span title="Marcar como lida">(Lido)</span>
+                    <span title="Marcar como lida" @click.prevent="markAsRead(notification.id)">(Lido)</span>
                     {{ notification.data.comment.user.name }} comentou: {{ notification.data.comment.title }} | No Produto:  {{ notification.data.comment.product.name }}
                 </a>
 
@@ -36,7 +36,9 @@ export default {
     },
 
     methods: {
-
+        markAsRead (notificationId) {
+            this.$store.dispatch('markAsRead', {id: notificationId})
+        }
     },
 }
 </script>

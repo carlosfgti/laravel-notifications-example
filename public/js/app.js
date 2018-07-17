@@ -48134,6 +48134,9 @@ var index_esm = {
             return axios.get('/notifications').then(function (response) {
                 return context.commit('LOAD_NOTIFICATIONS', response.data.notifications);
             });
+        },
+        markAsRead: function markAsRead(context, params) {
+            return axios.put('/notification-read', params);
         }
     },
 
@@ -48340,7 +48343,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }
     },
 
-    methods: {}
+    methods: {
+        markAsRead: function markAsRead(notificationId) {
+            this.$store.dispatch('markAsRead', { id: notificationId });
+        }
+    }
 });
 
 /***/ }),
@@ -48371,9 +48378,19 @@ var render = function() {
                 attrs: { href: "#" }
               },
               [
-                _c("span", { attrs: { title: "Marcar como lida" } }, [
-                  _vm._v("(Lido)")
-                ]),
+                _c(
+                  "span",
+                  {
+                    attrs: { title: "Marcar como lida" },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        _vm.markAsRead(notification.id)
+                      }
+                    }
+                  },
+                  [_vm._v("(Lido)")]
+                ),
                 _vm._v(
                   "\n                " +
                     _vm._s(notification.data.comment.user.name) +
