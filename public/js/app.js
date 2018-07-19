@@ -48131,15 +48131,15 @@ var index_esm = {
 
     actions: {
         getNotifications: function getNotifications(context) {
-            return axios.get('/notifications').then(function (response) {
+            return axios.get('/api/notifications').then(function (response) {
                 return context.commit('LOAD_NOTIFICATIONS', response.data.notifications);
             });
         },
         markAsRead: function markAsRead(context, params) {
-            return axios.put('/notification-read', params);
+            return axios.put('/api/notification-read', params);
         },
         markAllAsRead: function markAllAsRead(context, params) {
-            return axios.put('/notification-all-read');
+            return axios.put('/api/notification-all-read');
         }
     },
 
