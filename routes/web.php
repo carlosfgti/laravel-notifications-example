@@ -1,9 +1,5 @@
 <?php
 
-$this->put('notification-all-read', 'NotificationController@markAllAsRead')->name('notification.read.all');
-$this->put('notification-read', 'NotificationController@markAsRead')->name('notification.read');
-$this->get('notifications', 'NotificationController@notifications')->name('notifications');
-
 $this->post('commet', 'Products\CommentController@store')->name('comment.store');
 
 $this->get('product/{id}', 'Products\ProductController@show')->name('products.show');
