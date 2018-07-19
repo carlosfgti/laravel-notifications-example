@@ -7,6 +7,11 @@ export default {
         LOAD_NOTIFICATIONS (state, notifications) {
             state.items = notifications
         },
+
+        NOTIFICATION_READ (state, id) {
+            let notification = state.items.filter(notification => notification.id == id)
+            state.items.splice(notification, 1)
+        },
     },
 
     actions: {
@@ -17,6 +22,7 @@ export default {
 
         markAsRead (context, params) {
             return axios.put('/notification-read', params)
+                            .then(() => context.commit('NOTIFICATION_READ', params.id))
         },
 
         markAllAsRead (context, params) {

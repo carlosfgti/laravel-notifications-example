@@ -48126,20 +48126,28 @@ var index_esm = {
     mutations: {
         LOAD_NOTIFICATIONS: function LOAD_NOTIFICATIONS(state, notifications) {
             state.items = notifications;
+        },
+        NOTIFICATION_READ: function NOTIFICATION_READ(state, id) {
+            var notification = state.items.filter(function (notification) {
+                return notification.id == id;
+            });
+            state.items.splice(notification, 1);
         }
     },
 
     actions: {
         getNotifications: function getNotifications(context) {
-            return axios.get('/api/notifications').then(function (response) {
+            return axios.get('/notifications').then(function (response) {
                 return context.commit('LOAD_NOTIFICATIONS', response.data.notifications);
             });
         },
         markAsRead: function markAsRead(context, params) {
-            return axios.put('/api/notification-read', params);
+            return axios.put('/notification-read', params).then(function () {
+                return context.commit('NOTIFICATION_READ', params.id);
+            });
         },
         markAllAsRead: function markAllAsRead(context, params) {
-            return axios.put('/api/notification-all-read');
+            return axios.put('/notification-all-read');
         }
     },
 
