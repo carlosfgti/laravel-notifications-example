@@ -12,7 +12,7 @@
                 </a>
 
                 <a class="dropdown-item text-center" href="#" v-if="notifications.length">
-                    Ver todas
+                    Ver todas | <span @click.prevent="markAllAsRead">Marcar Todas como Lidas</span>
                 </a>
                 <a class="dropdown-item" href="#" v-else>
                     Sem Notificações
@@ -38,6 +38,10 @@ export default {
     methods: {
         markAsRead (notificationId) {
             this.$store.dispatch('markAsRead', {id: notificationId})
+        },
+
+        markAllAsRead (notificationId) {
+            this.$store.dispatch('markAllAsRead')
         }
     },
 }

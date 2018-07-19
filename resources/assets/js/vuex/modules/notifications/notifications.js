@@ -17,7 +17,11 @@ export default {
 
         markAsRead (context, params) {
             return axios.put('/notification-read', params)
-        }
+        },
+
+        markAllAsRead (context, params) {
+            return axios.put('/notification-all-read')
+        },
     },
 
     getters: {

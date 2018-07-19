@@ -48137,6 +48137,9 @@ var index_esm = {
         },
         markAsRead: function markAsRead(context, params) {
             return axios.put('/notification-read', params);
+        },
+        markAllAsRead: function markAllAsRead(context, params) {
+            return axios.put('/notification-all-read');
         }
     },
 
@@ -48346,6 +48349,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         markAsRead: function markAsRead(notificationId) {
             this.$store.dispatch('markAsRead', { id: notificationId });
+        },
+        markAllAsRead: function markAllAsRead(notificationId) {
+            this.$store.dispatch('markAllAsRead');
         }
     }
 });
@@ -48411,7 +48417,21 @@ var render = function() {
                   staticClass: "dropdown-item text-center",
                   attrs: { href: "#" }
                 },
-                [_vm._v("\n                Ver todas\n            ")]
+                [
+                  _vm._v("\n                Ver todas | "),
+                  _c(
+                    "span",
+                    {
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          return _vm.markAllAsRead($event)
+                        }
+                      }
+                    },
+                    [_vm._v("Marcar Todas como Lidas")]
+                  )
+                ]
               )
             : _c("a", { staticClass: "dropdown-item", attrs: { href: "#" } }, [
                 _vm._v("\n                Sem Notificações\n            ")
