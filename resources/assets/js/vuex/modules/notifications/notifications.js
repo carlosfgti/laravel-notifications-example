@@ -8,9 +8,13 @@ export default {
             state.items = notifications
         },
 
-        NOTIFICATION_READ (state, id) {
+        NOTIFICATION_MARK_AS_READ (state, id) {
             let notification = state.items.filter(notification => notification.id == id)
             state.items.splice(notification, 1)
+        },
+
+        NOTIFICATION_MARK_ALL_AS_READ (state, id) {
+            state.items = []
         },
     },
 
@@ -22,11 +26,12 @@ export default {
 
         markAsRead (context, params) {
             return axios.put('/notification-read', params)
-                            .then(() => context.commit('NOTIFICATION_READ', params.id))
+                            .then(() => context.commit('NOTIFICATION_MARK_AS_READ', params.id))
         },
 
-        markAllAsRead (context, params) {
+        markAllAsRead (context) {
             return axios.put('/notification-all-read')
+                            .then(() => context.commit('NOTIFICATION_MARK_ALL_AS_READ'))
         },
     },
 

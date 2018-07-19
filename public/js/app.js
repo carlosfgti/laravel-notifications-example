@@ -48127,11 +48127,14 @@ var index_esm = {
         LOAD_NOTIFICATIONS: function LOAD_NOTIFICATIONS(state, notifications) {
             state.items = notifications;
         },
-        NOTIFICATION_READ: function NOTIFICATION_READ(state, id) {
+        NOTIFICATION_MARK_AS_READ: function NOTIFICATION_MARK_AS_READ(state, id) {
             var notification = state.items.filter(function (notification) {
                 return notification.id == id;
             });
             state.items.splice(notification, 1);
+        },
+        NOTIFICATION_MARK_ALL_AS_READ: function NOTIFICATION_MARK_ALL_AS_READ(state, id) {
+            state.items = [];
         }
     },
 
@@ -48143,11 +48146,13 @@ var index_esm = {
         },
         markAsRead: function markAsRead(context, params) {
             return axios.put('/notification-read', params).then(function () {
-                return context.commit('NOTIFICATION_READ', params.id);
+                return context.commit('NOTIFICATION_MARK_AS_READ', params.id);
             });
         },
-        markAllAsRead: function markAllAsRead(context, params) {
-            return axios.put('/notification-all-read');
+        markAllAsRead: function markAllAsRead(context) {
+            return axios.put('/notification-all-read').then(function () {
+                return context.commit('NOTIFICATION_MARK_ALL_AS_READ');
+            });
         }
     },
 
