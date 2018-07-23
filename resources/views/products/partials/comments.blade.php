@@ -29,8 +29,11 @@
 
 <hr>
 
-<h3>Comentários</h3>
-@foreach ($comments as $comment)
-    {{ $comment->title }} - {{ $comment->body }}
-    <hr>
-@endforeach
+<div id="comments">
+        <h3>Comentários</h3>
+        @foreach ($comments as $comment)
+            <div id="comment-{{ $comment->id }}">
+                {{ $comment->title }} - {{ $comment->body }}
+            </div>
+        @endforeach
+</div>
