@@ -10412,13 +10412,28 @@ a.text-dark:focus {
 }
 
 .navbar-laravel {
-  background-color: #fff;
+  background-color: #4267b2;
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
+.navbar-light .navbar-nav .nav-link {
+  color: #FFF;
+}
+
+.navbar-light .navbar-brand {
+  color: #FF5722;
+}
+
+.card {
+  border-radius: 0;
+  margin-bottom: 10px;
+  border: 1px solid #4267b2;
+}
+
 .owner {
-  background: #CDDC39;
+  background: #4267b2;
+  color: #FFF;
 }
 
 #app {
