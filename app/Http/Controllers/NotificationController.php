@@ -9,7 +9,8 @@ class NotificationController extends Controller
     public function notifications(Request $request)
     {
         // $notifications = $request->user()->notifications;
-        $notifications = $request->user()->unreadNotifications;
+        // $notifications = $request->user()->unreadNotifications;
+        $notifications = $request->user()->unreadNotifications()->limit(5)->get();
 
         return response()->json(compact('notifications'));
     }
