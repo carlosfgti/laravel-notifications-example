@@ -6,9 +6,11 @@
             </a>
 
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#" v-for="notification in notifications" :key="notification.id">
+                <a class="dropdown-item" v-for="notification in notifications" :key="notification.id" href="#">
                     <span title="Marcar como lida" @click.prevent="markAsRead(notification.id)">(Lido)</span>
-                    {{ notification.data.comment.user.name }} comentou: {{ notification.data.comment.title }} | No Produto:  {{ notification.data.comment.product.name }}
+                    <p @click.prevent="redirect(notification)">
+                        {{ notification.data.comment.user.name }} comentou: {{ notification.data.comment.title }} | No Produto:  {{ notification.data.comment.product.name }}
+                    </p>
                 </a>
 
                 <a class="dropdown-item text-center" href="#" v-if="notifications.length">
@@ -42,6 +44,10 @@ export default {
 
         markAllAsRead (notificationId) {
             this.$store.dispatch('markAllAsRead')
+        },
+
+        redirect (notification) {
+            window.location.href = `/product/${notification.data.comment.product.id}#comment-${notification.data.comment.id}`
         }
     },
 }

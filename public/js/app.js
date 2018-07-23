@@ -48346,6 +48346,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     mounted: function mounted() {
@@ -48365,6 +48367,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         markAllAsRead: function markAllAsRead(notificationId) {
             this.$store.dispatch('markAllAsRead');
+        },
+        redirect: function redirect(notification) {
+            window.location.href = '/product/' + notification.data.comment.product.id + '#comment-' + notification.data.comment.id;
         }
     }
 });
@@ -48431,14 +48436,28 @@ var render = function() {
                   },
                   [_vm._v("(Lido)")]
                 ),
-                _vm._v(
-                  "\n                " +
-                    _vm._s(notification.data.comment.user.name) +
-                    " comentou: " +
-                    _vm._s(notification.data.comment.title) +
-                    " | No Produto:  " +
-                    _vm._s(notification.data.comment.product.name) +
-                    "\n            "
+                _vm._v(" "),
+                _c(
+                  "p",
+                  {
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        _vm.redirect(notification)
+                      }
+                    }
+                  },
+                  [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(notification.data.comment.user.name) +
+                        " comentou: " +
+                        _vm._s(notification.data.comment.title) +
+                        " | No Produto:  " +
+                        _vm._s(notification.data.comment.product.name) +
+                        "\n                "
+                    )
+                  ]
                 )
               ]
             )
