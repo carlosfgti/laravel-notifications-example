@@ -18,7 +18,15 @@
 .navbar-light .navbar-brand {
   color: #FF5722;
 }
-.card{border-radius: 0; margin-bottom: 10px; border: 1px solid #4267b2;}
+.card{border-radius: 0; margin-bottom: 10px; border: 1px solid #4267b2; min-height: 160px;}
+.dropdown-menu {
+  color: #ffffff;
+  background-color: #4267b2;
+  border-radius: 0;
+}
+.dropdown-item {
+  color: #ffffff;
+}
 
 .owner {
   background: #4267b2;
