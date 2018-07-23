@@ -43,10 +43,12 @@ class PostCommented extends Notification implements ShouldQueue
      */
     public function toMail($notifiable)
     {
+        $url = route('products.show', $this->comment->product_id) . "#comment-{$this->comment->id}";
+
         return (new MailMessage)
                     ->subject("New Comment: {$this->comment->title}")
                     ->line($this->comment->body)
-                    ->action('Ler comentário', route('products.show', $this->comment->product_id));
+                    ->action('Ler comentário', $url);
     }
 
     /**
