@@ -6,7 +6,11 @@
 
 <div class="row">
 @foreach ($products as $product)
+    @if (auth()->check() && auth()->user()->id == $product->user_id)
+    <div class="col-4 owner card text-center">
+    @else
     <div class="col-4 card text-center">
+    @endif
         <div class="card-body">
                 <div class="card-title">
                     {{ $product->name }}
