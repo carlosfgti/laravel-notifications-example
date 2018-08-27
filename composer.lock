@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "d5bca48e56bbf3a25645858fcab9c285",
+    "content-hash": "ddd857ff2db5de1cf623cf3b036b0abf",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1185,6 +1185,58 @@
                 "shell"
             ],
             "time": "2018-06-10T17:57:20+00:00"
+        },
+        {
+            "name": "pusher/pusher-php-server",
+            "version": "dev-new-lib",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pusher/pusher-http-php.git",
+                "reference": "6d1977e95cd814b084c2af49319630ee5f34f369"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pusher/pusher-http-php/zipball/6d1977e95cd814b084c2af49319630ee5f34f369",
+                "reference": "6d1977e95cd814b084c2af49319630ee5f34f369",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "ext-curl": "*",
+                "phpdocumentor/phpdocumentor": "2.*",
+                "phpunit/phpunit": "~4.0",
+                "squizlabs/php_codesniffer": "2.x"
+            },
+            "suggest": {
+                "ext-curl": "Pusher will use a different HTTP adapter if cURL is present"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-new-lib": "3.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Pusher\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Client code for the REST API",
+            "homepage": "https://github.com/pusher/pusher-http-php/",
+            "keywords": [
+                "http",
+                "pusher",
+                "rest",
+                "web service"
+            ],
+            "time": "2016-04-05T10:38:46+00:00"
         },
         {
             "name": "ramsey/uuid",
