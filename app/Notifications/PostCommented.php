@@ -32,7 +32,7 @@ class PostCommented extends Notification implements ShouldQueue
      */
     public function via($notifiable)
     {
-        return ['mail', 'database'];
+        return ['mail', 'database', 'broadcasting'];
     }
 
     /**
@@ -60,7 +60,11 @@ class PostCommented extends Notification implements ShouldQueue
     public function toArray($notifiable)
     {
         return [
-            //
+            'id' => $this->id,
+            'read_at'   => null,
+            'data' => [
+                'comment' => $this->comment->load('user')
+            ],
         ];
     }
 
