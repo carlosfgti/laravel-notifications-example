@@ -16,6 +16,10 @@ export default {
         NOTIFICATION_MARK_ALL_AS_READ (state, id) {
             state.items = []
         },
+
+        ADD_NEW_NOTIFICATION (state, notification) {
+            state.items.push(notification);
+        },
     },
 
     actions: {
