@@ -2,13 +2,14 @@
 
 namespace App\Notifications;
 
+use Illuminate\Notifications\Messages\BroadcastMessage;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use App\Models\Comment;
 
-class PostCommented extends Notification //implements ShouldQueue
+class PostCommented extends Notification implements ShouldQueue
 {
     use Queueable;
 
@@ -59,31 +60,13 @@ class PostCommented extends Notification //implements ShouldQueue
      */
     public function toBroadcast($notifiable)
     {
-        return [
+        return new BroadcastMessage([
             'id' => $this->id,
             'read_at'   => null,
             'data' => [
                 'comment' => $this->comment->load('user')
             ],
-        ];
-    }
-
-
-    /**
-     * Get the array representation of the notification.
-     *
-     * @param  mixed  $notifiable
-     * @return array
-     */
-    public function toArray($notifiable)
-    {
-        return [
-            'id' => $this->id,
-            'read_at'   => null,
-            'data' => [
-                'comment' => $this->comment->load('user')
-            ],
-        ];
+        ]);
     }
 
 
