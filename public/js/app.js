@@ -56675,20 +56675,25 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ }),
 /* 39 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vuex_store__ = __webpack_require__(42);
+
 
 
 var types = {
-    postCommented: 'App\Notifications\PostCommented'
+    postCommented: 'App\\Notifications\\PostCommented'
 };
 
 if (Laravel.user) {
 
-    console.log('App.Models.User.' + Laravel.user);
-
-    window.Echo.private('App.Models.User.' + Laravel.user).notification(function (notification) {
+    Echo.private('App.Models.User.' + Laravel.user).notification(function (notification) {
         if (notification.type == types.postCommented) {
+            console.log('App.Models.User.' + Laravel.user);
             console.log(notification);
+            __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].commit('ADD_NEW_NOTIFICATION', notification);
         }
     });
 }
