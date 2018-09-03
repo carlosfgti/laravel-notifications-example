@@ -1,4 +1,7 @@
 <?php
+
+Broadcast::routes();
+
 /**
  * Routes notifications
  */
