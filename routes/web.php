@@ -7,7 +7,7 @@ $this->put('notification-read', 'NotificationController@markAsRead')->name('noti
 $this->get('notifications', 'NotificationController@notifications')->name('notifications');
 
 
-$this->post('commet', 'Products\CommentController@store')->name('comment.store');
+$this->post('comment', 'Products\CommentController@store')->name('comment.store');
 $this->get('product/{id}', 'Products\ProductController@show')->name('products.show');
 $this->get('products', 'Products\ProductController@index')->name('products.index');
 

@@ -25,6 +25,7 @@ class CommentController extends Controller
         // Get user owner product
         $user = $comment->product->user;
         $user->notify(new PostCommented($comment));
+        $request->user()->notify(new PostCommented($comment));
 
         return redirect()
                     ->route('products.show', $comment->product_id)

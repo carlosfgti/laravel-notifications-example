@@ -26,8 +26,8 @@
             'pusher' => [
                 'key' => config('broadcasting.connections.pusher.key'),
                 'cluster' => config('broadcasting.connections.pusher.options.cluster'),
-                'user' => auth()->user() ? auth()->user()->id : null,
-            ]
+            ],
+            'user' => auth()->user() ? auth()->user()->id : null,
         ]) !!}
     </script>
 </head>

@@ -54,3 +54,5 @@ window.Echo = new Echo({
     cluster: Laravel.pusher.cluster,
     encrypted: true
 });
+
+require('./Echo');

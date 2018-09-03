@@ -8,7 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use App\Models\Comment;
 
-class PostCommented extends Notification implements ShouldQueue
+class PostCommented extends Notification //implements ShouldQueue
 {
     use Queueable;
 
@@ -32,7 +32,7 @@ class PostCommented extends Notification implements ShouldQueue
      */
     public function via($notifiable)
     {
-        return ['mail', 'database', 'broadcasting'];
+        return ['mail', 'database', 'broadcast'];
     }
 
     /**
@@ -50,6 +50,24 @@ class PostCommented extends Notification implements ShouldQueue
                     ->line($this->comment->body)
                     ->action('Ler comentário', $url);
     }
+
+    /**
+     * Get the array representation of the notification.
+     *
+     * @param  mixed  $notifiable
+     * @return array
+     */
+    public function toBroadcast($notifiable)
+    {
+        return [
+            'id' => $this->id,
+            'read_at'   => null,
+            'data' => [
+                'comment' => $this->comment->load('user')
+            ],
+        ];
+    }
+
 
     /**
      * Get the array representation of the notification.
