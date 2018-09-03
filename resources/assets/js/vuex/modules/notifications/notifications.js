@@ -18,7 +18,7 @@ export default {
         },
 
         ADD_NEW_NOTIFICATION (state, notification) {
-            state.items.push(notification);
+            state.items.unshift(notification);
         },
     },
 
