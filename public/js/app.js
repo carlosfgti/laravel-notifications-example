@@ -56678,21 +56678,20 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ (function(module, exports) {
 
 
+var types = {
+    postCommented: 'App\Notifications\PostCommented'
+};
+
 if (Laravel.user) {
 
-    console.log('App.User.' + Laravel.user);
+    console.log('App.Models.User.' + Laravel.user);
 
-    Echo.private('App.User.' + Laravel.user).notification(function (notification) {
-        console.log(notification);
-    });
-    Echo.private('App.User.' + Laravel.user).listen('PostCommented', function (e) {
-        console.log(e);
+    window.Echo.private('App.Models.User.' + Laravel.user).notification(function (notification) {
+        if (notification.type == types.postCommented) {
+            console.log(notification);
+        }
     });
 }
-
-Echo.private('teste').notification(function (notification) {
-    console.log(notification);
-});
 
 /***/ }),
 /* 40 */
