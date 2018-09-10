@@ -1,8 +1,19 @@
+import Snotify from 'vue-snotify'
+
 require('./bootstrap');
 
 window.Vue = require('vue');
 
+/**
+ * Local imports
+ */
 import store from './vuex/store'
+
+
+/**
+ * Uses
+ */
+Vue.use(Snotify)
 
 
 /**
