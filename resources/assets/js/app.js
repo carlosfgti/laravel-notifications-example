@@ -1,8 +1,6 @@
-import Snotify from 'vue-snotify'
-
 require('./bootstrap');
-
 window.Vue = require('vue');
+import Snotify from 'vue-snotify'
 
 /**
  * Local imports
@@ -13,7 +11,7 @@ import store from './vuex/store'
 /**
  * Uses
  */
-Vue.use(Snotify)
+Vue.use(Snotify, {toast: {showProgressBar: false}})
 
 
 /**
