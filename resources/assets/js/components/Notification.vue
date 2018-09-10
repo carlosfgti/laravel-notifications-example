@@ -8,7 +8,7 @@
                 <textarea v-model="formData.body" name="body" class="form-control" placeholder="Comentário" cols="30" rows="10"></textarea>
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-default">
+                <button type="submit" class="btn btn-default" :disabled="preloader">
                     Comentar
                 </button>
             </div>
@@ -27,15 +27,20 @@ export default {
                 product_id: this.product_id,
                 title: '',
                 body: '',
-            }
+            },
+
+            preloader: false,
         }
     },
 
     methods: {
         onSubmit () {
+            this.preloader = true
+
             axios.post('/comment', this.formData)
                     .then(response => console.log(response))
                     .catch(error => console.log(error))
+                    .finally(() => this.preloader = false)
         }
     }
 }
