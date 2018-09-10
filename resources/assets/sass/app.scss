@@ -8,6 +8,9 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+// VueSnotify
+@import "~vue-snotify/styles/material";
+
 .navbar-laravel {
   background-color: #4267b2;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
