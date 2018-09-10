@@ -58519,7 +58519,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__vuex_store__ = __webpack_require__(12);
 
 
-
 var types = {
     postCommented: 'App\\Notifications\\PostCommented'
 };
@@ -58529,7 +58528,10 @@ if (Laravel.user) {
     Echo.private('App.Models.User.' + Laravel.user).notification(function (notification) {
         if (notification.type == types.postCommented) {
             // Notify
-            snotify.success('Nova Notificação');
+            // Vue.$snotify.error('Erro ao carregar o produto')          
+            if (Laravel.user == notification.data.comment.product.user.id) {
+                alert('Nova notificação');
+            }
 
             __WEBPACK_IMPORTED_MODULE_0__vuex_store__["a" /* default */].commit('ADD_NEW_NOTIFICATION', notification);
         }
