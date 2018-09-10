@@ -58186,8 +58186,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }).catch(function (error) {
                 return console.log(error);
             }).finally(function () {
-                return _this.preloader = false;
+                _this.preloader = false;
+                _this.clearForm();
             });
+        },
+        clearForm: function clearForm() {
+            this.formData = {
+                product_id: this.product_id,
+                title: '',
+                body: ''
+            };
         }
     }
 });

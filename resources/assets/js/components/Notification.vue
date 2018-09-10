@@ -40,7 +40,18 @@ export default {
             axios.post('/comment', this.formData)
                     .then(response => console.log(response))
                     .catch(error => console.log(error))
-                    .finally(() => this.preloader = false)
+                    .finally(() => {
+                        this.preloader = false
+                        this.clearForm()
+                    })
+        },
+
+        clearForm () {
+            this.formData = {
+                product_id: this.product_id,
+                title: '',
+                body: '',
+            }
         }
     }
 }
